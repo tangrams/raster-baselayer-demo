@@ -15,9 +15,6 @@ styles:
             blocks:
                 color: |
                     color.rgb *= vec3(min((v_world_position.z*.001 + .6),1.));
-    roads:
-        base: lines
-        blend: inlay
 
 sources:
     osm:
@@ -30,7 +27,7 @@ layers:
         filter:
             not: { kind: [rail, ferry] }
         draw:
-            roads:
+            lines:
                 order: 2
                 color: [[15, '#777'], [18, '#aaa']]
                 width: [[16, .5px], [18, 10]]
