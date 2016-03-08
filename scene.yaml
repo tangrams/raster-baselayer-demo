@@ -28,7 +28,7 @@ layers:
             not: { kind: [rail, ferry] }
         draw:
             lines:
-                order: 2
+                order: function() { return feature.sort_key; }
                 color: [[15, '#777'], [18, '#aaa']]
                 width: [[16, .5px], [18, 10]]
 
@@ -36,7 +36,7 @@ layers:
         data: { source: osm }
         draw:
             polygons:
-                order: 500
+                order: function() { return feature.sort_key; }
                 color: '#fff'
 
         extruded:
@@ -53,7 +53,7 @@ layers:
             filter: { kind: highway, $zoom: { min: 7 } }
             draw:
                 text:
-                    order: 5
+                    order: function() { return feature.sort_key; }
                     font:
                         fill: black
                         weight: 500
@@ -63,7 +63,7 @@ layers:
             filter: { not: { kind: highway }, $zoom: { min: 15 } }
             draw:
                 text:
-                    order: 5
+                    order: function() { return feature.sort_key; }
                     font:
                         fill: black
                         weight: 100
