@@ -1,6 +1,6 @@
-# generic-demo
+# raster-baselayer-demo
 
-A [Tangram](http://github.com/tangrams/tangram) map with a raster baselayer.
+A demonstration of a [Tangram](http://github.com/tangrams/tangram) map with a raster baselayer.
 
 Live demo: http://tangrams.github.io/raster-baselayer-demo
 
