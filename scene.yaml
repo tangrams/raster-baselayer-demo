@@ -19,7 +19,7 @@ styles:
 sources:
     osm:
         type: TopoJSON
-        url:  https://vector.mapzen.com/osm/all/{z}/{x}/{y}.topojson
+        url: https://tile.mapzen.com/mapzen/vector/v1/all/{z}/{x}/{y}.topojson?api_key=mapzen-QF1osLn
         max_zoom: 16
 
 layers:
@@ -29,7 +29,7 @@ layers:
             not: { kind: [rail, ferry] }
         draw:
             lines:
-                order: function() { return feature.sort_key; }
+                order: function() { return feature.sort_rank; }
                 color: [[15, '#777'], [18, '#aaa']]
                 width: [[16, .5px], [18, 10]]
 
@@ -37,7 +37,7 @@ layers:
         data: { source: osm }
         draw:
             polygons:
-                order: function() { return feature.sort_key; }
+                order: function() { return feature.sort_rank; }
                 color: '#fff'
 
         extruded:
@@ -54,7 +54,7 @@ layers:
             filter: { kind: highway, $zoom: { min: 7 } }
             draw:
                 text:
-                    order: function() { return feature.sort_key; }
+                    order: function() { return feature.sort_rank; }
                     font:
                         fill: black
                         weight: 500
@@ -64,7 +64,7 @@ layers:
             filter: { not: { kind: highway }, $zoom: { min: 15 } }
             draw:
                 text:
-                    order: function() { return feature.sort_key; }
+                    order: function() { return feature.sort_rank; }
                     font:
                         fill: black
                         weight: 100
